@@ -4,7 +4,7 @@ This is a module that Write a class Square
 """
 class Square:
     """
-    This is a module that Write a class Square
+    This is a module that writes a class square
 
     Attributes:
         size (int): Human readable string describing the exception.
@@ -30,3 +30,15 @@ class Square:
         """
         Private instance attribute: size
         """
+    def area(self):
+        """
+        Note:
+            Do not include the `self` parameter in the ``Args`` section.
+
+        Args:
+
+        Returns:
+            Area
+        """
+        return self.__size * self.__size
+
