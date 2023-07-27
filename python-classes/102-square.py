@@ -1,83 +1,80 @@
 #!/usr/bin/python3
-"""
-This is a module that Write a class Square
-"""
+
 
 class Square:
     """
-    This is a module that Write a class Square
-
-    Attributes:
-        size (int): Human readable string describing the exception.
+    creates square
     """
 
-     def __init__(self, size=0):
-         """
-         The __init__ method may be documented in either the class level
-         docstring, or as a docstring on the __init__ method itself.
-
-         Either form is acceptable, but the two should not be mixed. Choose one
-         convention to document the __init__ method and be consistent with it.
-
-         Note:
-            Do not include the `self` parameter in the ``Args`` section.
-        Args:
-            size (int): Description of `param1`.
+    def __init__(self, size=0):
         """
-        if not isinstance(size, int):
-            raise TypeError("size must be an integer")
-        if size < 0:
-            raise ValueError("size must be >= 0")
+        initializes square
+
+        Args:
+            size: size of side of square
+        """
         self.__size = size
-        """
-        Private instance attribute: size
-        """
-    def area(self):
-        """
-        Note:
-            Do not include the `self` parameter in the ``Args`` section.
-        Args:
 
-        Returns:
-            Area
-        """
-        return self.__size * self.__size
     @property
     def size(self):
         """
-        Note:
-            Do not include the `self` parameter in the ``Args`` section.
-        Args:
-
-        Returns:
-            Size
+        finds size
         """
         return self.__size
+
     @size.setter
     def size(self, value):
         """
-        Note:
-            Do not include the `self` parameter in the ``Args`` section.
-        Args:
-            value (int): value int
-        Returns:
-            Area
+        validates size is an integer that is greater than zero
         """
-        if not isinstance(value, int):
-            raise TypeError("size must be an integer")
-        if value < 0:
-            raise ValueError("size must be >= 0")
-        self.__size = valie
-    def __lt__(self, value):
-        return self.__size < value.size
-    def __le__(self, value):
-        return self.__size <= value.size
-    def __eq__(self, value):
-        return self.__size == value.size
-    def __ne__(self, value):
-        return self.__size != value.size
-    def __ge__(self, value):
-        return self.__size >= value.size
-    def __gt__(self, value):
-        return self.__size > value.size
+        if type(value) is not int:
+            raise TypeError('size must be an integer')
+        elif value < 0:
+            raise ValueError('size must be >= 0')
+        else:
+            self.__size = value
 
+    def area(self):
+        """
+        finds area of square
+
+        Returns:
+            area of square
+        """
+        return self.__size ** 2
+
+    def __eq__(self, other):
+        """
+        check if square is equal to other square
+        """
+        return self.size == other.size
+
+    def __ne__(self, other):
+        """
+        check if square is not equal to other square
+        """
+        return self.size != other.size
+
+    def __gt__(self, other):
+        """
+        check if square is greater than other square
+        """
+        return self.size > other.size
+
+    def __lt__(self, other):
+        """
+        check if square is less than other square
+        """
+        return self.size < other.size
+
+    def __ge__(self, other):
+        """
+        check if square is greater than or equal to other square
+        """
+        return self.size >= other.size
+
+    def __le__(self, other):
+        """
+        check if square is less than or equal to other square
+        """
+        return self.size <= other.size
