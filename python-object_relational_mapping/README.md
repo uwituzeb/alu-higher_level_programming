@@ -1,1 +1,1 @@
-object relational programming
+object relational mapping
