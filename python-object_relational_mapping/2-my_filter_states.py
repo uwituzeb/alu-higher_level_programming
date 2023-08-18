@@ -18,7 +18,7 @@ if __name__ == '__main__':
     state_name = sys.argv[4]
 
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE na,e LIKE BINARY '%{}%'\
+    cur.execute("SELECT * FROM states WHERE name LIKE BINARY '%{}%'\
             ORDER BY states.id ASC".format(state_name))
     table = cur.fetchall()
 
@@ -27,5 +27,3 @@ if __name__ == '__main__':
 
     cur.close()
     db.close()
-
-

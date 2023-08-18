@@ -21,7 +21,7 @@ if __name__ == "__main__":
     state_name = sys.argv[4]
 
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name = (%s)\
+    cur.execute("SELECT * FROM states WHERE name LIKE %s\
     ORDER BY states.id ASC", (state_name,))
     table = cur.fetchall()
 

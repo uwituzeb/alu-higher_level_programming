@@ -18,9 +18,9 @@ if __name__ == "__main__":
     state_name = sys.argv[4]
     cur = db.cursor()
     cur.execute("SELECT cities.name FROM cities\
-                 LEFT JOIN states\
+                 INNER JOIN states\
                  ON states.id = cities.state_id\
-                 WHERE states.name LIKE BINARY (%s) ORDER BY cities.id ASC",
+                 WHERE states.name LIKE %s ORDER BY cities.id ASC",
                 (state_name,))
     table = cur.fetchall()
 
