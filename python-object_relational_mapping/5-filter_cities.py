@@ -1,35 +1,31 @@
 #!/usr/bin/python3
-"""Module that that lists all cities from the database"""
-
-
+"""
+takes in the name of a state as an argument
+and lists all cities of that state,
+using the database hbtn_0e_4_usa
+"""
 import MySQLdb
-import sys
+from sys import argv
 
 
-if __name__ == "__main__":
-
+def list_cities_based_on_state(user, passwd, db, state_name):
+    '''List all cities ordered by id in
+    ascending order'''
     db = MySQLdb.connect(
-        host='localhost',
-        user=sys.argv[1],
-        passwd=sys.argv[2],
-        db=sys.argv[3],
-        port=3306
-        )
-    state_name = sys.argv[4]
-    cur = db.cursor()
-    cur.execute("SELECT cities.name FROM cities\
-                 INNER JOIN states\
-                 ON states.id = cities.state_id\
-                 WHERE states.name LIKE %s ORDER BY cities.id ASC",
-                (state_name,))
-    table = cur.fetchall()
+        host="localhost",
+        user=user,
+        passwd=passwd,
+        db=db,
+        port=3306)
+    cursor = db.cursor()
+    cursor.execute('''SELECT cities.name, states.name FROM cities\
+    INNER JOIN states ON cities.state_id=states.id ORDER BY cities.id ASC;''')
+    results = []
+    for result in cursor.fetchall():
+        if result[1] == state_name:
+            results.append(result[0])
+    print(', '.join(results))
 
-    end_str = ""
-    str_cities = ""
-    for row in table:
-        str_cities = str_cities + end_str + row[0]
-        end_str = ", "
 
-    print(str_cities)
-    cur.close()
-    db.close()
+if __name__ == '__main__':
+    list_cities_based_on_state(argv[1], argv[2], argv[3], argv[4])

@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
- script that lists all states with a name starting with N (upper N) from the database hbtn_0e_0_usa
+script that lists all states with a name starting with N
 """
 from sys import argv
 import MySQLdb
@@ -24,4 +24,3 @@ def list_states_starting_with_N(user, passwd, db):
 
 if __name__ == '__main__':
     list_states_starting_with_N(argv[1], argv[2], argv[3])
-    
