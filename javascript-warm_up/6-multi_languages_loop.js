@@ -1,6 +1,6 @@
 #!/usr/bin/node
-// Using for loop to print array
 
-for (const sentence of ['C is fun', 'Python is cool', 'Javascript is amazing']) {
+const sentences = ['C is fun', 'Python is cool', 'Javascript is amazing'];
+for (const sentence of sentences) {
   console.log(sentence);
 }
