@@ -9,4 +9,4 @@ if (isNaN(size)) {
     for (let c = 0; c < size; c++) row += 'X';
     console.log(row);
   }
-};
+}
