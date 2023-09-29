@@ -5,7 +5,7 @@ class Rectangle {
       this.width = w;
       this.height = h;
     }
-}
+  }
 
   print (c = 'X') {
     for (let i = 0; i < this.height; i++) {
@@ -13,8 +13,8 @@ class Rectangle {
         process.stdout.write(c);
       }
       process.stdout.write('\n');
+    }
   }
-}
 
   rotate () {
     [this.width, this.height] = [this.height, this.width];
